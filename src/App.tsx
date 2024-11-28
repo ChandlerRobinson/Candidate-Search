@@ -1,15 +1,17 @@
+import React from 'react';
 import { Outlet } from 'react-router-dom';
-import Nav from './components/Nav';
+import Navbar from './components/Navbar';
 
-function App() {
+const App = () => {
   return (
-    <>
-      <Nav />
-      <main>
-        <Outlet />
-      </main>
-    </>
+    <div>
+      <Navbar />
+      <Outlet /> {/* This renders the child routes (CandidateSearch or SavedCandidates) */}
+    </div>
   );
-}
+};
 
 export default App;
+
+
+
