@@ -9,11 +9,7 @@ const searchGithub = async () => {
     const data = await response.json();
     if (!response.ok) throw new Error("Invalid API response");
     console.log("Fetched Candidates:", data); // Check raw data
-    return data.map((user) => ({
-      username: user.login,
-      avatarUrl: user.avatar_url,
-      htmlUrl: user.html_url,
-    }));
+    return data;
   } catch (err) {
     console.error("Error fetching GitHub users:", err);
     return [];

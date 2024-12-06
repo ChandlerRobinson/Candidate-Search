@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import CandidateCard from "../components/CandidateCard";
 import { searchGithub, searchGithubUser } from "../api/API";
 import { Candidate } from "../types";
@@ -85,9 +85,9 @@ const CandidateSearch = () => {
           location={currentCandidate.location || "Not specified"}
           email={currentCandidate.email || "Not provided"}
           company={currentCandidate.company || "Not provided"}
-          bio={currentCandidate.bio}
-          blog={currentCandidate.blog}
-          followers={currentCandidate.followers}
+          // bio={currentCandidate}
+          // blog={currentCandidate.blog}
+          // followers={currentCandidate.followers}
           onSave={handleSaveCandidate}
           onSkip={showNextCandidate}
         />

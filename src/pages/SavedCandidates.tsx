@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import CandidateCard from "../components/CandidateCard";
 import { Candidate } from "../types";
 import { searchGithubUser } from "../api/API";
@@ -48,9 +48,9 @@ const SavedCandidates = () => {
               location={candidate.location || "Not specified"}
               email={candidate.email || "Not provided"}
               company={candidate.company || "Not provided"}
-              bio={candidate.bio}
-              blog={candidate.blog}
-              followers={candidate.followers}
+              // bio={candidate.bio}
+              // blog={candidate.blog}
+              // followers={candidate.followers}
               onSave={() => {}}
               onSkip={() => {}}
             />
