@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 interface CandidateProps {
   name: string;
-  username: string;
+  login: string;
   avatarUrl: string;
   htmlUrl: string;
   location: string;
@@ -17,7 +17,7 @@ interface CandidateProps {
 
 const CandidateCard: React.FC<CandidateProps> = ({
   name,
-  username,
+  login,
   avatarUrl,
   htmlUrl,
   location,
@@ -33,9 +33,9 @@ const CandidateCard: React.FC<CandidateProps> = ({
 
   return (
     <div className="candidate-card">
-      <img src={avatarUrl} alt={`${username}'s avatar`} />
+      <img src={avatarUrl} alt={`${login}'s avatar`} />
       <h2>{name}</h2>
-      <p><strong>Username:</strong> {username}</p>
+      <p><strong>login:</strong> {login}</p>
       <p><strong>Location:</strong> {location}</p>
       <p><strong>Email:</strong> {email}</p>
       <p><strong>Company:</strong> {company}</p>

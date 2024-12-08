@@ -1,6 +1,6 @@
 export interface Candidate {
     name?: string; // Optional, as not all candidates may have it
-    username: string;
+    login: string;
     avatarUrl: string;
     htmlUrl: string;
     location?: string; // Optional

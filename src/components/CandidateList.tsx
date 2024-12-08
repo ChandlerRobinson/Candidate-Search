@@ -2,7 +2,7 @@ import React from "react";
 
 interface Candidate {
   name: string;
-  username: string;
+  login: string;
   location: string;
   avatarUrl: string;
   email: string | null;
@@ -29,7 +29,7 @@ const CandidateList: React.FC<CandidateListProps> = ({ candidates }) => {
                 style={{ width: "50px", borderRadius: "50%" }}
               />
               <h3>{candidate.name}</h3>
-              <p><strong>Username:</strong> {candidate.username}</p>
+              <p><strong>login:</strong> {candidate.login}</p>
               <p><strong>Location:</strong> {candidate.location}</p>
               <p><strong>Email:</strong> {candidate.email || "Not provided"}</p>
               <p><strong>Company:</strong> {candidate.company || "Not provided"}</p>

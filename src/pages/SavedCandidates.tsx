@@ -14,7 +14,7 @@ const SavedCandidates = () => {
 
       const detailedCandidates = await Promise.all(
         candidates.map(async (candidate) => {
-          const details = await searchGithubUser(candidate.username);
+          const details = await searchGithubUser(candidate.login);
           return { ...candidate, ...details };
         })
       );
@@ -25,9 +25,9 @@ const SavedCandidates = () => {
     fetchSavedCandidates();
   }, []);
 
-  const deleteCandidate = (username: string) => {
+  const deleteCandidate = (login: string) => {
     const updatedCandidates = savedCandidates.filter(
-      (candidate) => candidate.username !== username
+      (candidate) => candidate.login !== login
     );
 
     setSavedCandidates(updatedCandidates);
@@ -41,8 +41,8 @@ const SavedCandidates = () => {
         savedCandidates.map((candidate, index) => (
           <div key={index} style={{ border: "1px solid #ccc", padding: "10px", margin: "10px 0" }}>
             <CandidateCard
-              name={candidate.name || candidate.username}
-              username={candidate.username}
+              name={candidate.name || candidate.login}
+              login={candidate.login}
               avatarUrl={candidate.avatarUrl}
               htmlUrl={candidate.htmlUrl}
               location={candidate.location || "Not specified"}
@@ -55,7 +55,7 @@ const SavedCandidates = () => {
               onSkip={() => {}}
             />
             <button
-              onClick={() => deleteCandidate(candidate.username)}
+              onClick={() => deleteCandidate(candidate.login)}
               className="delete-btn"
             >
               Delete Candidate

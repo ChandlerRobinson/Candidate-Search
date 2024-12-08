@@ -1,7 +1,7 @@
 // TODO: Create an interface for the Candidate objects returned by the API
 export interface Candidate {
     name?: string; // Optional
-    username: string;
+    login: string;
     avatarUrl: string;
     htmlUrl: string;
     location?: string; // Optional

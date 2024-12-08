@@ -30,11 +30,11 @@ const CandidateSearch = () => {
 
   useEffect(() => {
     const fetchCandidateDetails = async () => {
-      if (!currentCandidate || !currentCandidate.username) return;
+      if (!currentCandidate || !currentCandidate.login) return;
 
       setIsLoadingDetails(true);
       try {
-        const detailedCandidate = await searchGithubUser(currentCandidate.username);
+        const detailedCandidate = await searchGithubUser(currentCandidate.login);
         if (detailedCandidate) {
           setCurrentCandidate((prev) => ({ ...prev, ...detailedCandidate }));
         }
@@ -46,7 +46,7 @@ const CandidateSearch = () => {
     };
 
     fetchCandidateDetails();
-  }, [currentCandidate?.username]);
+  }, [currentCandidate?.login]);
 
   const handleSaveCandidate = () => {
     if (!currentCandidate) return;
@@ -78,8 +78,8 @@ const CandidateSearch = () => {
         <p>Loading candidate details...</p>
       ) : currentCandidate ? (
         <CandidateCard
-          name={currentCandidate.name || currentCandidate.username}
-          username={currentCandidate.username}
+          name={currentCandidate.name || currentCandidate.login}
+          login={currentCandidate.login}
           avatarUrl={currentCandidate.avatarUrl}
           htmlUrl={currentCandidate.htmlUrl}
           location={currentCandidate.location || "Not specified"}

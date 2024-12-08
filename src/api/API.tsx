@@ -19,9 +19,9 @@ const searchGithub = async () => {
 
 
 
-const searchGithubUser = async (username: string) => {
+const searchGithubUser = async (login: string) => {
   try {
-    const response = await fetch(`https://api.github.com/users/${username}`, {
+    const response = await fetch(`https://api.github.com/users/${login}`, {
       headers: {
         Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
       },
@@ -31,7 +31,7 @@ const searchGithubUser = async (username: string) => {
     console.log("Detailed User Data:", data); // Debugging
     return {
       name: data.name || "Unknown",
-      username: data.login || "Unknown",
+      login: data.login || "Unknown",
       avatarUrl: data.avatar_url || "",
       htmlUrl: data.html_url || "#",
       location: data.location || "Unknown",
